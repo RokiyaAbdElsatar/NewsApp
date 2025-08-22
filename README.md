@@ -6,12 +6,14 @@ A modern and dynamic news app built with **Flutter**, fetching real-time data fr
 
 Users can choose a news category (like Sports, Business, Health...) from the top list, and the app automatically updates the list of articles based on the selection.
 
-
-https://github.com/user-attachments/assets/d9280b7f-f741-4645-8a12-855840a2ed5f
-
-
-
 ---
+
+
+
+https://github.com/user-attachments/assets/76999861-1858-4f74-9b56-b5146fc80390
+
+
+
 
 ## 📝 Description
 
