@@ -7,9 +7,7 @@ Users can choose a news category (like Sports, Business, Health...) from the top
 
 ## 📱 Preview
 
-https://github.com/user-attachments/assets/76999861-1858-4f74-9b56-b5146fc80390
-
-
+https://github.com/user-attachments/assets/3cce3b26-6df1-46f3-b4f1-c25041c579ef
 
 
 ## 📝 Description
