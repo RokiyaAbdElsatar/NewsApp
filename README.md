@@ -1,14 +1,11 @@
 # 📰 News App with Flutter & NewsAPI
 
-## 📱 Preview
-
 A modern and dynamic news app built with **Flutter**, fetching real-time data from **NewsAPI.org** and displaying it beautifully using custom widgets.
 
 Users can choose a news category (like Sports, Business, Health...) from the top list, and the app automatically updates the list of articles based on the selection.
 
----
 
-
+## 📱 Preview
 
 https://github.com/user-attachments/assets/76999861-1858-4f74-9b56-b5146fc80390
 
