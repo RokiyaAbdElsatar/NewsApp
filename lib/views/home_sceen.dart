@@ -23,6 +23,7 @@ class _HomeSrceenState extends State<HomeSrceen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Align(
           alignment: Alignment.center,
           child: RichText(

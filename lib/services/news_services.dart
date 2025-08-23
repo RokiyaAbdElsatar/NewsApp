@@ -17,12 +17,14 @@ class NewsService {
       List<NewsModel> articlList = [];
       for (var artical in articles) {
         NewsModel articalModel = NewsModel(
-          imageURL:
-              artical["urlToImage"] ??
-              'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fnews-logo&psig=AOvVaw2G9Prr1HgZWmomXMXW9yXS&ust=1755932773227000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNit0sftnY8DFQAAAAAdAAAAABAE',
-
+          imageURL: artical["urlToImage"]??'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fillustrations%2Fnews-logo&psig=AOvVaw2G9Prr1HgZWmomXMXW9yXS&ust=1755932773227000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCNit0sftnY8DFQAAAAAdAAAAABAE',
           title: artical["title"] ?? 'No title available',
           description: artical["description"] ?? 'No description available',
+          author: artical["author"] ?? 'No author available',
+          content: artical["content"] ?? 'No content available',
+          url: artical["url"] ?? '',
+           publishedAt: DateTime.tryParse(artical["publishedAt"] ?? '') ?? DateTime.now(),
+
         );
         articlList.add(articalModel);
       }
