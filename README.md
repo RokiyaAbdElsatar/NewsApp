@@ -4,22 +4,39 @@ A modern and dynamic news app built with **Flutter**, fetching real-time data fr
 
 Users can choose a news category (like Sports, Business, Health...) from the top list, and the app automatically updates the list of articles based on the selection.
 
+Each article can be opened in a **dedicated details page** showing full content, author name, and a "Read More" button to view the original source.
+
+---
 
 ## 📱 Preview
 
-https://github.com/user-attachments/assets/3cce3b26-6df1-46f3-b4f1-c25041c579ef
+
+https://github.com/user-attachments/assets/9381cb3f-c4c5-4d67-b429-973ecfd8abf9
 
 
-## 📝 Description
+Icon App 
 
-This project is a Flutter-based news application that:
+<img width="109" height="115" alt="image" src="https://github.com/user-attachments/assets/ffb7c0b1-02b6-487a-9fe4-90cf1ee9f51c" />
 
-- Displays a horizontally scrollable list of **news categories** (e.g. Sports, Science, General...)
+
+---
+
+## 📝 Features
+
+This Flutter-based news application includes:
+
+- Horizontally scrollable list of **news categories**
 - Fetches **news articles dynamically** using [NewsAPI.org](https://newsapi.org/)
-- Shows a **custom news card** for each article, including an image, title, and description
-- Supports **image fallback** using assets when the network image fails to load
-- Organized with modular widgets: `NewsCard`, `NewsList`, `CategoryCard`, `CategoryList`
-- Implements `didUpdateWidget` to refresh articles when category changes
+- Custom-designed **news cards** with image, title, and description
+- Tapping on a card opens a **details screen** with:
+  - Title, Image, Author, Description
+  - Full content (if available)
+  - Published date (formatted using `intl`)
+  - **"Read Full Article"** button that launches the URL in the browser
+- Fallback image shown when the article image is null or fails
+- Added **app icon** using custom assets
+- Modular and clean widget architecture
+- Uses `StatefulWidget` + `didUpdateWidget` to handle dynamic updates
 
 ---
 
@@ -28,30 +45,38 @@ This project is a Flutter-based news application that:
 ```
 lib/
 ├── models/
-│   ├── category_model.dart       # Category model & list
-│   └── news_model.dart           # News article model
+│   ├── category_model.dart       # Category model
+│   └── news_model.dart           # News article model (title, description, author, image, content, date, url)
 │
 ├── services/
 │   └── news_services.dart        # API logic to fetch articles
 │
 ├── widgets/
-│   ├── category_card.dart        # UI card for category
-│   ├── category_list.dart        # Horizontal list of categories
-│   ├── news_card.dart            # UI card for article
-│   └── news_list.dart            # Vertical list of articles
+│   ├── category_card.dart        # UI card for a category
+│   ├── category_list.dart        # Horizontal scroll of categories
+│   ├── news_card.dart            # UI card for each news article
+│   ├── news_list.dart            # Vertical list of articles
+│   ├── auther_card.dart          # Widget to show author
+│   └── news_image.dart           # Widget to display image with fallback
 │
-└── home_screen.dart              # Main UI screen
+├── views/
+│   └── news_screen.dart          # Article details page
+│
+└── home_screen.dart              # Main home screen with categories and articles
 ```
 
 ---
 
 ## 🛠 Technologies Used
 
-- Flutter (Dart)
-- NewsAPI (HTTP requests via Dio)
-- Modular UI widgets
-- `Image.network` + `errorBuilder`
-- State management via `StatefulWidget` and `didUpdateWidget`
+- **Flutter (Dart)**
+- **NewsAPI** (via Dio for HTTP)
+- `intl` for date formatting
+- `url_launcher` for opening URLs in browser
+- Modular UI Widgets
+- State Management with `StatefulWidget` & `didUpdateWidget`
+- Asset management and fallback handling
+- App Icon added using `mipmap-*` assets
 
 ---
 
@@ -75,7 +100,7 @@ cd news_app_flutter
 2. Replace `YOUR_API_KEY` in `news_services.dart`:
 
 ```dart
-https://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=YOUR_API_KEY
+'https://newsapi.org/v2/top-headlines?country=us&category=$category&apiKey=YOUR_API_KEY'
 ```
 
 3. Run the app:
@@ -87,11 +112,9 @@ flutter run
 
 ---
 
----
+## 🧾 Additional Setup
 
-## 📌 Notes
-
-- Make sure you added your assets in `pubspec.yaml`:
+### ✅ Add your assets in `pubspec.yaml`:
 
 ```yaml
 flutter:
@@ -99,13 +122,38 @@ flutter:
     - assets/images/
 ```
 
-- If a news image fails to load, a fallback image from assets will appear instead.
+> 🔁 If `Image.network` fails, fallback image will load from `assets/images/news.jpg`.
+
+### ✅ Add `url_launcher` and `intl` dependencies:
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  dio: ^5.9.0
+  url_launcher: ^6.3.2
+  intl: ^0.20.2
+```
+
+Then run:
+
+```bash
+flutter pub get
+```
 
 ---
 
-## 🧑‍💻 Authors
+## 📌 Notes
 
-- Rokiya Abd Elsatar
+- If a news article doesn't have content, a graceful fallback is shown.
+- The app is responsive and visually optimized with padding, alignment, and color design.
+- The "Read Full Article" button is only shown if the URL is available.
+
+---
+
+## 🧑‍💻 Author
+
+- **Rokiya Abd Elsatar**
 
 ---
 
